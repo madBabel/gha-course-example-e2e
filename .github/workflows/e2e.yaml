@@ -11,12 +11,17 @@ jobs:
   e2e-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout code By Call
+        if: github.event_name == 'workflow_call'
         uses: actions/checkout@v4
-  #      with:
-  #        repository: ${{ github.repository }}
-  #        ref: main
-  #        token: ${{ secrets.access-token }}
+        with:
+          repository: ${{ github.repository }}
+          ref: main
+          token: ${{ secrets.access-token }}
+
+      - name: Checkout code By Dispatch
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@v4
 
       - name: Setup node
         uses: actions/setup-node@v4
