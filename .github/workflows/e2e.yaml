@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository }}
-          ref: main
-          token: ${{ secrets.access-token }}
+  #      with:
+  #        repository: ${{ github.repository }}
+  #        ref: main
+  #        token: ${{ secrets.access-token }}
 
       - name: Setup node
         uses: actions/setup-node@v4
